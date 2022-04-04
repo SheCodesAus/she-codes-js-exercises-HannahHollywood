@@ -20,31 +20,23 @@ function updateTodoList() {
   });
 }
 
-
 function moveUp(index) {
+  if (index === 0) return // We should not move it if its at the start
+    let item = todoTaskText[index];
+    todoTaskText.splice(index, 1) // This removes it
+    todoTaskText.splice(index - 1, 0, item) // This adds it back in
     console.log(index)
-    // let todoList = document.getElementById("todo-list");
-    // while (index < 0) {
-    //     index += todoList.length;
-    // }
-    // while (newIndex < 0) {
-    //     index += todoList.length;
-    // }
-    // if (newIndex >= todoList.length) {
-    //     var k = index = todoList.length;
-    //     while ((k--) + 1) {
-    //         todoList.push(undefined);
-    //     }
-    // todoList.splice(index, 0, todoList.splice(index, 1)[0]);
-    // return todoList
-    // }
 
-    let moveUpButtonElement = document.getElementById("new-task-text"); 
-    let newIndex = moveUpButtonElement.innerText;
-    newTodoTaskElement = parseInt(index) + 1;
-    moveUpButtonElement.innerText = newIndex;
-    console.log(newIndex)
-    updateTodoList();
+    updateTodoList(); // Updates the item by moving it up!
+}
+
+function moveDown(index) {
+    let item = todoTaskText[index];
+    todoTaskText.splice(index, 1) // This removes it
+    todoTaskText.splice(index + 1, 0, item) // This adds it back in
+    console.log(index)
+
+    updateTodoList(); // Updates the item by moving it down!
 }
 
 function createNewTodoItemElement(task, index) {
@@ -72,8 +64,16 @@ function createNewTodoItemElement(task, index) {
   moveUpButtonElement.value = "⬆️";
   moveUpButtonElement.onclick = function () {
     moveUp(index);
-};
+  };
   newTodoTaskElement.appendChild(moveUpButtonElement);
+
+  let moveDownButtonElement = document.createElement("input");
+  moveDownButtonElement.type = "button";
+  moveDownButtonElement.value = "⬇️";
+  moveDownButtonElement.onclick = function () {
+    moveDown(index);
+  };
+  newTodoTaskElement.appendChild(moveDownButtonElement);
 
   return newTodoTaskElement;
 }
