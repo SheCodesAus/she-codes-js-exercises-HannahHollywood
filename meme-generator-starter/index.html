@@ -15,12 +15,24 @@
         <h1>Meme Generator</h1>
         <div id="image-url-input" class="inputs">
             <input id="image-url" type="text" placeholder="Image URL here..." />
-            <input type="button" value="Submit" />
+            <input type="button" value="Submit" onclick="getImage()" />
         </div>
         <div id="meme-builder">
-            <div id="meme-image-wrapper"></div>
-            <div id="top-text-wrapper" class="inputs"></div>
-            <div id="bottom-text-wrapper" class="inputs"></div>
+            <div id="meme-image-wrapper">    
+                <!-- <img id="meme-image" src="" /> -->
+                <h2 id="top-text"></h2>
+                <h2 id="bottom-text"></h2>
+            </div>
+
+            <div id="top-text-wrapper" class="inputs">
+                <input id="top-text-input" type="text" placeholder="Top text." />
+                <input type="button" value="Submit" onclick="addTopText()" />
+            </div>
+            
+            <div id="bottom-text-wrapper" class="inputs">
+                <input id="bottom-text-input" type="text" placeholder="Bottom text." />
+                <input type="button" value="Submit" onclick="addBottomText()" />
+            </div>
         </div>
 
         <script src="script.js"></script>

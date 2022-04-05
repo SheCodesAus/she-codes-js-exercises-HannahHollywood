@@ -13,8 +13,25 @@
 
     <body>
         <div id="wrapper">
-            <p id="number">0</p>
-            <div id="button-wrapper"></div>
+            <p>
+                <input id="number" type="text" placeholder="Enter a number:">
+                <input type="button" value="👍" onclick="total()" />
+            </p>
+
+            <div id="button-wrapper">
+                <input type="button" value="- 1" id="subtraction" onclick="take(1)"/>
+                <input type="button" value="- 10" id="subtraction" onclick="take(10)"/>
+
+                <input type="button" value="+ 1" id="addition" onclick="add(1)"/>
+                <input type="button" value="+ 10" id="addition" onclick="add(10)"/>
+
+                <input type="button" value="* 1" id="multiply" onclick="multiply(1)"/>
+                <input type="button" value="* 10" id="multiply" onclick="multiply(10)"/>
+
+                <input type="button" value="/ 1" id="divide" onclick="divide(1)"/>
+                <input type="button" value="/ 10" id="divide" onclick="divide(10)"/>
+            </div>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
